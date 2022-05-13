@@ -10,7 +10,7 @@ Here, we will try to see what happens when we enter a URL into a browser and hit
 
 ## Let's try to see with the help of a diagram of how the flow works:
 
-Image here
+![lya7b81ow94pniln3aif](https://user-images.githubusercontent.com/56493775/168250913-ec514172-ea1b-4a06-b3eb-75786179807d.jpg)
 
 ## What is the main functionality of the browser?
 
@@ -32,7 +32,7 @@ The browser's high level architecture consists of following components:
 
  So, the main use of rendering engine is to of course render content requested by the user. But, how does it perform this task. The image below explains the basic flow of a rendering engine:
 
- Image here
+![Screenshot 2022-05-13 115549](https://user-images.githubusercontent.com/56493775/168249985-3a6e023d-e1c8-4f9b-802d-42db3034a5db.png)
 
  It includes four steps:
  1. The requested HTML content is parsed in small fragments, including all the CSS files. The HTML elements are then transformed into DOM nodes to form the **DOM Tree**.
@@ -55,7 +55,7 @@ The browser's high level architecture consists of following components:
    
   So, the browsers create custom parsers for parsing HTML. The algorithm consists of two stages: **tokenization and tree construction**. This is the basic flow of HTML parser:
 
-  Image here
+![Screenshot 2022-05-13 121731](https://user-images.githubusercontent.com/56493775/168250051-e36835db-4303-4fb5-8f33-b336637341b5.png)
 
   **Tokenization** is like the lexical analysis phase of the compiler. It parses the input tokens. The algorithm is designed in a form of state machine. Every state takes on or more characters of the input stream and updates the next state according to one of those characters.
 
@@ -70,7 +70,7 @@ The browser's high level architecture consists of following components:
 
   WebKit uses Flex and Bison parser generators to create parsers automatically from CSS files. Bison creates a bottom-up shift reduce parser. The CSS file is parsed into a StyleSheet object. Each object contains CSS rules. The CSS rule objects contain selectors and declaration objects and other objects corresponding to CSS grammar. The following image is an example:
 
-  Image here 
+![Screenshot 2022-05-13 123654](https://user-images.githubusercontent.com/56493775/168250095-6055d166-bdfe-4be5-ae78-e6b4c905e363.png)
 
 ## Script Processors and Order of Script Processing
 
@@ -94,7 +94,7 @@ It seems from the upper level that styles sheets don't change the DOM tree. So, 
   
  The picture below shows an example of render tree construction from DOM tree: 
 
- Image Here
+![Screenshot 2022-05-13 133832](https://user-images.githubusercontent.com/56493775/168250164-81b4db50-29f7-48cb-a358-492b1de8fa18.png)
 
  But, before adding elements in the render tree, we should also know the style properties of each element. This is done using style computation. Many techniques are applied for style compuatation and many optimisations are also applied. For example, WebKit shares style data by referencing style objects. They are shared only if the fulfill some conditions.
 
